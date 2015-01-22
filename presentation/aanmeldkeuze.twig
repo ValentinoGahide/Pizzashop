@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">                
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <title>Aanmelden/registreren</title>
+    </head>
+    <body>
+        {% include 'header.twig' %}
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="inloggen col-xs-10 col-sm-5 col-md-5">
+                        <form action="index.php?actie=login" method="POST">
+                            <label id="Lemail">E-mail: </label>
+                            <input type="email" name="email" value="{{email}}"><br>
+                            <label id="Lwachtwoord">Wachtwoord: </label>
+                            <input type="password" name="wachtwoord"><br><br>
+                            <input type="reset" name="reset" value="Wissen">
+                            <input type="submit" name="inloggen" value="Inloggen">
+                        </form>
+                    </div>
+                    <div class="inloggen col-xs-10 col-sm-5 col-md-5">
+                        Ik heb nog geen account.<br><br>
+                        <form action="index.php?actie=nieuwaccount" method="POST">
+                            <input type="submit" name="submit" value="Maak nieuw account">
+                        </form>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <div class="navbar-fixed-bottom">
+        {% include 'footer.twig' %}
+    </div>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">  
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <title>Pizzashop</title>
+    </head>
+    <body>
+        {% include 'header.twig' %}
+        <div class="content">
+            <div class="container">
+                <div class="gebruiker"> 
+                    {% if gebruiker.naam is defined %}
+                        {{gebruiker.naam}} {{gebruiker.voornaam}} - <a href="index.php?actie=loguit">Uitloggen</a>
+                    {% endif %}       
+                </div>
+                <div class="row">
+                    {% include 'overzicht.twig' %}         
+                    {% include 'winkelmand.twig' %}
+                    {% include 'carousel.twig' %}
+                </div>
+            </div>
+        </div>
+    </body>
+    {% include 'footer.twig' %}
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 4000
+            });
+        });
+    </script>
+</html>

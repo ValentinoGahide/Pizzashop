@@ -1,0 +1,31 @@
+<div class="overzicht col-xs-12 col-md-6">
+        <h1>
+            Overzicht Pizza's
+        </h1>
+        {% for pizzadetail in pizzalijst %}
+            <div class="pizza">
+                <div class="naam">
+                {{pizzadetail.pizza.PizzaNaam}}
+                </div>
+                {% if gebruiker.promo == 1 %}
+                    <div class="promoprijs">
+                        &euro; {{pizzadetail.pizza.Prijs | number_format(2,',','.')}}
+                    </div>
+                    &euro; {{pizzadetail.pizza.promoprijs | number_format(2,',','.')}}
+                {% else %}
+                    <div class="geenpromoprijs">
+                        &euro; {{pizzadetail.pizza.Prijs | number_format(2,',','.')}}
+                    </div>                    
+                {% endif %}
+                <br>
+                <form action="index.php?actie=vulmand" method="post">
+                    <input type="hidden" name="pizzaId" value="{{pizzadetail.pizza.PizzaId}}">
+                    <input type="number"  min="1" max="99" maxlenght="2" name="aantal" required>
+                    <input type="submit" name="verzend" value="Bestel">
+                </form>
+                {% for product in pizzadetail.product %}
+                    {{product.ProductNaam}}
+                {% endfor %}
+            </div>
+        {% endfor %}
+</div>

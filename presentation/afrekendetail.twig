@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">  
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">  
+        <title>Pizzashop - Afrekenen</title>
+    </head>
+    <body>
+        {% include 'header.twig' %}
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    {% include 'winkelmand.twig' %}
+                    {% include 'gebruiker.twig' %}
+                    <br>
+                    <div class="col-xs-12 col-md-12">
+                        {% if gebruiker.plaats.leverplaats == 1 %}
+                            <form action="index.php?actie=bestel" method="POST">
+                                <b>Extra informatie voor onze koerier:</b><br>
+                                <textarea name="extrainfo"></textarea><br><br>
+                                <input class="btn1" id="bestellen" type="submit" name="bestel" value="Bestellen">
+                            </form>
+                        {% else %}
+                            <div class="error">
+                                In uw gemeente kan er niet geleverd worden. Gelieve een ander adres op te geven.
+                            </div>
+                        {% endif %}
+                    </div>
+                    <a class="col-xs-12 col-md-12" id="home" href="index.php">Voeg nog pizza's toe</a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <div class="navbar-fixed-bottom">
+    {% include 'footer.twig' %}
+    </div>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">  
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">    
+        <title>Pizzashop - Besteloverzicht</title>
+    </head>
+    <body>
+        {% include 'header.twig' %}<br>
+        <div class="content">
+            <div class="container">
+                <div class="col-xs-12 col-md-6">
+                    <div class="bestellingok">
+                        Proficiat, {{bestelling.gebruiker.voornaam}} {{bestelling.gebruiker.naam}}, je hebt zonet bij ons besteld.<br>
+                    </div>
+                    <div class="besteloverzicht">
+                        Hieronder kan u een overzicht vinden van je bestelling.<br>
+                        <br>
+                        Uw bestelling van {{bestelling.tijdstip | date("d/m/Y H:i:s")}}<br>
+                        <b>{% for pizza in pizzalijst %}
+                            {{pizza.aantal}} x {{pizza.pizza.pizzanaam}}<br>
+                            {% endfor %}</b>
+                            Het te betalen bedrag is:<b> &euro; {{bestelling.totaal | number_format(2,',','.')}}</b><br>
+                            <br>
+                            Uw bestelling wordt geleverd op het volgende adres:<br><b>
+                                {{bestelling.gebruiker.straat}} {{bestelling.gebruiker.huisnummer}} {{bestelling.gebruiker.busnummer}}<br>
+                                {{bestelling.gebruiker.plaats.postcode}} {{bestelling.gebruiker.plaats.plaatsnaam}}<br>
+                                {{bestelling.gebruiker.tel}}</b><br><br>
+                                {% if bestelling.extrainfo != "" %}
+                                Uw extra informatie voor ons:<br>
+                                <b>{{bestelling.extrainfo}}</b><br>
+                            {% endif %}
+                            <br>
+                            Onze koerier zal zo snel mogelijk de bestelling leveren.<br>
+                            Smakelijk!<br><br>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <img id="text" src="images/smakelijk.jpg">
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <a id="home" href="index.php">Terug naar de startpagina</a>
+                    </div>
+                </div>
+            </div>
+        </body>
+        <div class="navbar-fixed-bottom">
+            {% include 'footer.twig' %}
+        </div>
+    </html>

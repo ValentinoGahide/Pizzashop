@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Leveringgegevens</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">  
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <script type="text/javascript">
+            window.onload = function () {
+            {% if gebruiker is not defined %}
+                    var edivAccount = document.getElementById('account');
+                    edivAccount.style.display = "none";
+                    var eAccountAanmaken = document.getElementById('chkAccount');
+                    eAccountAanmaken.onmouseup = toonaccount;
+            {% endif %}
+                    var ePostcode = document.getElementById('postcode');
+                    ePostcode.onchange = setGemeente;
+                    var eGemeente = document.getElementById('gemeente');
+                    eGemeente.onchange = setPostcode;
+                };
+            {% if gebruiker is not defined %}
+                function toonaccount() {
+                    var chk = document.getElementById('chkAccount');
+                    var edivAccount = document.getElementById('account');
+                    if (chk.checked) {
+                        edivAccount.style.display = "none";
+                    } else {
+                        edivAccount.style.display = "block";
+                    }
+                }
+                ;
+            {% endif %}
+                function setPostcode() {
+                    var selectie = document.getElementById('gemeente').value;
+                    var ePostcode = document.getElementById('postcode');
+                    ePostcode.value = selectie;
+                }
+                ;
+                function setGemeente() {
+                    var selectie = document.getElementById('postcode').value;
+                    var eGemeente = document.getElementById('gemeente');
+                    eGemeente.value = selectie;
+                }
+                ;
+        </script>
+    </head>
+    <body>
+        {% include 'header.twig' %}
+        <div class="container">
+            <h1>                 
+                Nieuwe gebruikergegevens
+            </h1>
+            {% if gebruiker is defined %}
+                <form action="index.php?actie=updategebruiker" method="POST">
+                    <input type="hidden" name="gebruikerId" value="{{gebruiker.gebruikerId}}">
+                {% else %}
+                    <form action="index.php?actie=registreergebruiker" method="POST">
+                    {% endif %}
+                    <label id="Lnaam">Naam: </label>
+                    <input type="text" name="naam" value="{{gebruiker.naam}}"><br>
+                    <label id="Lvoornaam">Voornaam: </label>
+                    <input type="text" name="voornaam" value="{{gebruiker.voornaam}}"><br>
+                    <label id="Lstraat">Straat: </label>
+                    <input type="text" name="straat" value="{{gebruiker.straat}}"><br>
+                    <label id="Lhuisnummer">Huisnummer: </label>
+                    <input type="number" name="huisnummer" min="1" value="{{gebruiker.huisnummer}}"><br>
+                    <label id="Lbus">Busnummer: </label>
+                    <input type="text" name="busnummer" value="{{gebruiker.busnummer}}"><br>
+                    <label id="Lpostcode">Postcode: </label>
+                    <select id="postcode" name="postcode">
+                        {% for rij in postlijst %}
+                            <option value="{{rij.PlaatsId}}" {% if gebruiker.plaats.plaatsId == rij.PlaatsId %} selected {% endif %}>
+                                {{rij.Postcode}}
+                            </option>            
+                        {% endfor %}
+                    </select><br>
+                    <label id="Lgemeente">Gemeente: </label>
+                    <select id="gemeente" name="gemeente">
+                        {% for rij in postlijst %}
+                            <option value="{{rij.PlaatsId}}" {% if gebruiker.plaats.plaatsId == rij.PlaatsId %} selected {% endif %}>
+                                {{rij.Plaatsnaam}}
+                            </option>            
+                        {% endfor %}
+                    </select><br>
+                    <label id="Ltel">Tel/GSM: </label>
+                    <input type="tel" name="tel" value="{{gebruiker.tel}}"><br>
+                    {% if gebruiker is not defined %}
+                        <label id="Laccount">Aanmaken account: </label>
+                        <input type="checkbox" id="chkAccount" name="account"><br>            
+                        <div id="account">
+                            <label id="Lemail">E-mail: </label>
+                            <input type="email" name="email"><br>
+                            <label id="Lwachtwoord">Wachtwoord: </label>
+                            <input type="password" name="wachtwoord"><br>
+                        </div>
+                    {% endif %}
+                    <label id="Lextra">Extra: </label>
+                    <textarea name="extra">{{gebruiker.extra}}</textarea><br><br>
+                    <input type="reset" name="reset" value="Wissen">
+                    {% if gebruiker is defined %}
+                        <input type="submit" name="submit" value="Update gegevens">
+                    {% else %}
+                        <input type="submit" name="submit" value="Registeer">            
+                    {% endif%}
+                </form>
+                <a id="home" href="index.php">Overzicht van pizza's</a>
+        </div>
+    </body>
+    <div class="navbar-fixed-bottom">
+        {% include 'footer.twig' %}
+    </div>
+</html>

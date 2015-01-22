@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+ content a:hover {
+    text-decoration:none;
+}
+/* header */
+header {
+    border-bottom: 5px black solid;  
+}
+.header {
+    text-align: center;
+}
+#text {
+    width:50%;
+}
+#logo {
+    width:15%;
+    margin:2em 4em;
+}
+
+/*achtergrond */
+.content {
+    margin-bottom:1em;
+}
+
+/* gebruiker */
+.gebruiker {
+    width: 100%;
+    font-size:1.5em;
+    margin-top: 1em;
+}
+.levering {
+    font-size:1.1em;
+}
+
+/* overzicht */
+.pizza {
+    border: 1px lightgrey solid;
+    float: left;
+    width: 45%;
+    height: 10em;
+    padding: 1em;
+    background-color: #F0F0F0;
+    height:12em;
+
+}
+.naam {
+    font-weight: bold;
+    font-size:1.2em;
+    color:darkred;
+}
+.promoprijs {
+    text-decoration: line-through;
+}
+.geenpromoprijs{
+    float: left;
+}
+input[type="number"] {
+    width: 3em;
+}
+.pizzanaam {
+    width: 8em;
+}
+/* winkelmand */
+#winkelmand {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+}
+#winkelmand td, #winkelmand th {
+    font-size: 1em;
+    text-align: center;
+    border: 1px solid black;
+    padding: 3px 7px 2px 7px;
+}
+#winkelmand th {
+    font-size: 1.1em;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: black;
+    color: #ffffff;
+}
+#winkelmand tr:nth-child(even) td {
+    color: #000000;
+    background-color: #F0F0F0;
+}
+
+/* carousel */
+.carousel {
+    border: 3px solid black;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    border-radius: 0.4em;
+}
+#carousel {
+    margin-top:1.5em;
+}
+
+/* footer */
+footer {
+    background-color:black;
+    color:white;
+}
+
+/* aanmelden */
+.inloggen {
+    height: 7.5em;
+    padding: 1em;
+    margin:2em;
+    border: 1px black solid;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    border-radius: 0.4em;
+}
+
+/* links */
+#home {
+    font-size:1.5em;   
+    text-decoration:none;
+}
+
+/* registreren/updaten */
+form {
+    margin-bottom:1em;
+}
+
+/* besteloverzicht */
+#bestellen {
+    font-size:1.5em;
+}
+.besteloverzicht, .bestellingok{
+    font-size:1.2em;
+}
+
+/* error */
+.error {
+    color: red;
+}
+
+/* buttons */
+.btn1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    -webkit-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+    border-radius: 0.4em;
+    color: #ffffff;
+    background: #000000;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn1:hover {
+    background: darkred;
+    color: #ffffff;
+    text-decoration: none;
+}

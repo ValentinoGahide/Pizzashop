@@ -1,0 +1,78 @@
+<div class="winkelmand col-xs-12 col-md-6">
+        <h1>
+            Winkelmand
+        </h1>
+        <table id="winkelmand">
+            <thead>
+                <tr>
+                    <th>Aantal</th>
+                    <th></th>
+                    <th>Pizza</th>
+                    <th>Prijs/pizza</th>
+                    <th>Totaal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, pizzabesteldetail in bestellijst %}            
+                    <tr>
+                        <td class="aantal">
+                            {{pizzabesteldetail.aantal}}
+                        </td>
+                        {% if key is defined %}
+                            <td>
+                                <form action="index.php?actie=vulmand" method="POST">
+                                    <input type="hidden" name="pizzaId" value="{{pizzabesteldetail.pizza.pizzaId}}">
+                                    <input type="hidden" name="aantal" value="1">
+                                    <input type="hidden" name="ref" value="{{ref}}">
+                                    <input type="submit" name="bestel" value="+">
+                                </form>
+                                <form action="index.php?actie=vermindermand" method="POST">
+                                    <input type="hidden" name="pizzaId" value="{{pizzabesteldetail.pizza.pizzaId}}">
+                                    <input type="hidden" name="aantal" value="1">
+                                    <input type="hidden" name="ref" value="{{ref}}">
+                                    <input type="submit" name="bestel" value="-">
+                                </form>
+                            </td>        
+                        {% endif %}
+                        <td class="pizzanaam">
+                            {{pizzabesteldetail.pizza.PizzaNaam}}
+                        </td>
+                        {% if gebruiker.promo == 1 %}
+                            <td class="prijs">
+                                &euro; {{pizzabesteldetail.pizza.promoprijs | number_format(2,',','.')}}
+                            </td>
+                            <td class="totprijs">
+                                &euro; {{(pizzabesteldetail.pizza.promoprijs*pizzabesteldetail.aantal) | number_format(2,',','.') }}
+                            </td>
+                        {% else %}
+                            <td class="prijs">
+                                &euro; {{pizzabesteldetail.pizza.prijs | number_format(2,',','.')}}
+                            </td>
+                            <td class="totprijs">
+                                &euro; {{(pizzabesteldetail.pizza.prijs*pizzabesteldetail.aantal) | number_format(2,',','.') }}
+                            </td>
+                        {% endif %}
+                        <td class="verwijder">
+                            <form action="index.php?actie=vermindermand" method="POST">
+                                <input type="hidden" name="pizzaId" value="{{pizzabesteldetail.pizza.pizzaId}}">
+                                <input type="hidden" name="aantal" value="{{pizzabesteldetail.aantal}}">
+                                <input type="hidden" name="ref" value="{{ref}}">
+                                <input type="submit" name="delpizza" value="X">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <div class="totaalbestel">
+            <b>Totaal bestelling: &euro; {{totaal | number_format(2,',','.')}}</b>
+        </div>
+        <br>
+        {% if knop == true %}
+            <form action="index.php?actie=afrekendetail" method="post">
+                <input class="btn1" type="submit" name="afreken" value="Afrekenen">
+            </form>
+        {% endif %}
+    </div>

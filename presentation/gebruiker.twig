@@ -1,0 +1,21 @@
+<div class="levering col-xs-12 col-md-6">
+    <h1>
+        Levering gegevens
+    </h1>
+    <div>
+        <b>Naam:</b> {{gebruiker.Naam}}<br>
+        <b>Voornaam:</b> {{gebruiker.Voornaam}}<br>
+        <b>Straat:</b> {{gebruiker.straat}}<br>
+        <b>Huisnummer:</b> {{gebruiker.huisnummer}}<br>
+        <b>Busnummer:</b> {{gebruiker.busnummer}}<br>
+        <b>Postcode:</b> {{gebruiker.plaats.postcode}}<br>
+        <b>Gemeente:</b> {{gebruiker.plaats.plaatsnaam}}<br>
+        {% if gebruiker.plaats.leverplaats == 0 %}
+            <div class="error">{{error}}</div><br>
+        {% endif %}
+        <b>Tel/GSM:</b> {{gebruiker.tel}}<br><br>
+        <form action="index.php?actie=klantaanpassen" method="POST">
+            <input type="submit" name="klantaanpassen" value="Aanpassen">
+        </form>
+    </div>
+</div>

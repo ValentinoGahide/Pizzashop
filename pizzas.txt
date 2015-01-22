@@ -1,0 +1,46 @@
+1.Pizza Margherita 
+mozzarella , tomaten 11
+2.Pizza Napolitana 
+mozzarella , tomaten , ansjovis , olijven 11
+3.Pizza Sicilianna 
+mozzarella , tomaten , ansjovis , kappertjes 11
+4.Pizza Veneziana 
+mozzarella , tomaten , uien , champignons 11
+5.Pizza Prosciutto 
+mozzarella , tomaten , ham 11
+6.Pizza Salami 
+mozzarella , tomaten , salami 11
+7.Pizza Arrabiata 
+mozzarella , tomaten , salami pikant 12
+8.Pizza Tono 
+mozzarella , tomaten , tonijn 10
+9.Pizza Funghi 
+mozzarella , tomaten , champignons 14
+10.Pizza Capricciosa 
+mozzarella , tomaten , ansjovis , parmaham , champignons 12
+11.Pizza Sophia Loren 
+mozzarella , tomaten , ham , champignons , ei 14
+12.Pizza Verde Campagna 
+mozzarella , tomaten , artisjokken , look , ansjovis , parmaham 12
+13.Pizza Quatro Stagioni 
+mozzarella , tomaten , salami , champignons , artisjokken , olijven 12
+14.Pizza Primavera 
+vegetarisch 11
+15.Pizza Pepperoni 
+mozzarella , tomaten , paprika 13
+16.Pizza Pepperoni Salami 
+mozzarella, tomaten, paprika, salami 13
+17.Pizza Hawai 
+mozzarella , tomaten , ham , ananas 13
+18.Pizza Calzone 
+mozzarella , tomaten , champignons , ham 14
+19.Pizza Frutti Di Mare 
+mozzarella , tomaten , zeevruchten 12
+20.Pizza Rimini 
+mozzarella , tomaten , ham , champignons 12
+21.Pizza Quattro Formaggi 
+mozzarella , tomaten , 4 kazen 15
+22.Pizza Carpaccio 
+mozzarella , tomaten , rundsvlees , parmesan 11
+23.Pizza Bolognaise 14
+mozzarella, tomaten, paprika, uien, gehakt
