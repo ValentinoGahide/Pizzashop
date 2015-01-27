@@ -15,7 +15,7 @@ class DBConfig {
         define('DB_NAME', getenv('OPENSHIFT_GEAR_NAME'));
 
         $dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=' . DB_PORT;
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $this->dbh = new PDO($dsn, DB_USER, DB_PASS);
     }
 
     public static function getInstance() {
