@@ -22,6 +22,7 @@ Twig\Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("presentation");
 $twig = new Twig_Environment($loader);
 
+
 if (isset($_GET["actie"])) {
     $getActie = $_GET["actie"];
     switch ($getActie) {
