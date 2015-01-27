@@ -17,7 +17,7 @@ class DBconfig {
         $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
         DBconfig::$DB_USERNAME = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
         DBconfig::$DB_PASSWORD = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-        DBconfig::$DB_CONNSTRING = "mysql:host=$host;port=$port;dbname=databasename";
+        DBconfig::$DB_CONNSTRING = "mysql:host=$host;port=$port;dbname=pizzashop";
     }
 
 }
