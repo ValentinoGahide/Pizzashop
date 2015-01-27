@@ -2,10 +2,6 @@
 
 namespace data;
 
-if (!isset($dbh)) {
-    $dbh = new DBconfig();
-}
-
 class DBconfig {
 
     public static $DB_CONNSTRING = null;
@@ -19,6 +15,8 @@ class DBconfig {
         DBconfig::$DB_USERNAME = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
         DBconfig::$DB_PASSWORD = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
         DBconfig::$DB_CONNSTRING = "mysql:host=$host;port=$port;dbname=pizzashop";
+
+        $this->dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
     }
 
     public static function getInstance() {
