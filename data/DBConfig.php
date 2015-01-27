@@ -4,6 +4,7 @@ namespace data;
 
 class DBConfig {
 
+    public $dbh; // handle of the db connexion
     private static $instance;
 
     function __construct() {
@@ -12,9 +13,9 @@ class DBConfig {
         $DB_USER = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
         $DB_PASS = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
         $DB_NAME = getenv('OPENSHIFT_GEAR_NAME');
-        
+
         $dsn = 'mysql:dbname=' . $DB_NAME . ';host=' . $DB_HOST . ';port=' . $DB_PORT;
-        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
+        $this->dbh = new PDO($dsn, $DB_USER, $DB_PASS);
     }
 
     public static function getInstance() {
