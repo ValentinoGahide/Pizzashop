@@ -14,7 +14,7 @@ class plaatsDAO {
         $lijst = array();
 
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT plaatsId, postcode, plaats, leverplaats FROM plaats";
 
@@ -36,7 +36,7 @@ class plaatsDAO {
     //        null: id niet gevonden in de database
     public function getPlaatsById($plaatsId) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT postcode, plaats, leverplaats FROM plaats WHERE plaatsId = $plaatsId";
 

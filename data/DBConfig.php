@@ -6,6 +6,11 @@ class DBConfig {
 
     public $dbh; // handle of the db connexion
     private static $instance;
+    public static $DB_HOST;
+    public static $DB_PORT;
+    public static $DB_USER;
+    public static $DB_PASS;
+    public static $DB_NAME;
 
     function __construct() {
         $DB_HOST = getenv('OPENSHIFT_MYSQL_DB_HOST');

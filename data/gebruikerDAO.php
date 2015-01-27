@@ -14,7 +14,7 @@ class gebruikerDAO {
     //output: $gebruiker: gebruiker-object met klant id
     public function creerGebruiker($gebruiker) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "INSERT INTO klant (naam, voornaam, straat, huisnummer, busnummer, plaatsId, "
                 . "tel, email, wachtwoord, extra, promo) "
@@ -34,7 +34,7 @@ class gebruikerDAO {
     //input: $gebruiker: gebruiker-object met de nieuw gegevens van de klant
     public function updateGebruiker($gebruiker) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "UPDATE `klant` SET naam = '" . $gebruiker->getNaam() . "', voornaam = '" . $gebruiker->getVoornaam() . "',"
                 . " straat = '" . $gebruiker->getStraat() . "', huisnummer = '" . $gebruiker->getHuisnummer() . "',"
@@ -52,7 +52,7 @@ class gebruikerDAO {
     //        null: indien id van de klant niet bestaat  
     public function getGebruikerById($gebruikerId) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT naam, voornaam, straat, huisnummer, busnummer, plaatsId, tel, email, wachtwoord, extra, promo FROM klant WHERE klantId = '$gebruikerId'";
 
@@ -79,7 +79,7 @@ class gebruikerDAO {
     //        null: indien emailadres van de klant niet bestaat  
     public function getGebruikerByEmail($email) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT klantId, naam, voornaam, straat, huisnummer, busnummer, plaatsId, tel, wachtwoord, extra, promo FROM klant WHERE email = '$email'";
 
@@ -106,7 +106,7 @@ class gebruikerDAO {
     //        false: indien emailadres niet in de database zit
     public function getEmailExists($email) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT email FROM klant WHERE email = '$email'";
 
@@ -128,7 +128,7 @@ class gebruikerDAO {
     //output: $wachtwoord: geeft het gehashde wachtwoord van de klant
     public function getWachtwoord($email) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT wachtwoord FROM klant WHERE email = '$email'";
 

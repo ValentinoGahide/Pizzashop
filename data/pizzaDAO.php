@@ -16,7 +16,7 @@ class pizzaDAO {
     //        null: indien pizza id niet bestaat
     public function getPizzaById($pizzaId) {
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT pizzaNaam, prijs, promoprijs, beschikbaar FROM pizza WHERE pizzaId = '$pizzaId'";
 
@@ -40,7 +40,7 @@ class pizzaDAO {
         $lijst = array();
 
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT pizzaId, pizzaNaam, prijs, promoprijs, beschikbaar FROM pizza";
 
@@ -62,7 +62,7 @@ class pizzaDAO {
         $lijst = array();
 
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT productpizzaId, producten_per_pizza.productId, producten.productNaam FROM producten_per_pizza, producten WHERE pizzaId = '" . $pizza->getPizzaid() . "' AND producten.productId = producten_per_pizza.productId";
 
@@ -86,7 +86,7 @@ class pizzaDAO {
         $lijst = array();
 
         /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
-        $dbh = new PDO($dsn, DB_USER, DB_PASS);
+        $dbh = new PDO($dsn, $DB_USER, $DB_PASS);
 
         $sql = "SELECT productpizzaId, pizza.pizzaId, pizzaNaam, prijs, promoprijs, producten_per_pizza.productId, producten.productNaam FROM pizza, producten_per_pizza, producten WHERE producten.productId = producten_per_pizza.productId AND pizza.pizzaId = producten_per_pizza.pizzaId AND beschikbaar = '1'";
 
