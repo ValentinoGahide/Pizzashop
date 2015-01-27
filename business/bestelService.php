@@ -1,5 +1,5 @@
 <?php
-namespace Business;
+namespace business;
 
 use data\bestelDAO;
 

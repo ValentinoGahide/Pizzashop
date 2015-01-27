@@ -1,5 +1,5 @@
 <?php
-namespace Data;
+namespace data;
 
 use data\DBConfig;
 use PDO;

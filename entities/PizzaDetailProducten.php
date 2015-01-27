@@ -1,5 +1,5 @@
 <?php
-namespace Entities;
+namespace entities;
 
 class PizzaDetailProducten{
     
