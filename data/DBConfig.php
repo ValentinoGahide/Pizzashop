@@ -2,7 +2,7 @@
 
 namespace data;
 
-class DBconfig {
+class DBConfig {
 
     public $dbh; // handle of the db connexion
     private static $instance;
