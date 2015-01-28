@@ -25,17 +25,17 @@ namespace data;
 /*
   class DBConfig {
 
-  public static $DB_CONNSTRING = "mysql:host=localhost;dbname=pizzashop";
-  public static $DB_USERNAME = "root";
-  public static $DB_PASSWORD = "";
+  public static $DB_CONNSTRING = "mysql:host=127.7.81.2;dbname=pizzashop";
+  public static $DB_USERNAME = " admin3kTxibJ";
+  public static $DB_PASSWORD = "yBwqcMY7urJG";
 
   }
  */
 
 class DBConfig {
 
-    public static $DB_CONNSTRING = "mysql:host=127.7.81.2;dbname=pizzashop";
-    public static $DB_USERNAME = " admin3kTxibJ";
-    public static $DB_PASSWORD = "yBwqcMY7urJG";
+    public static $DB_CONNSTRING = "mysql:host=localhost;dbname=pizzashop";
+    public static $DB_USERNAME = "root";
+    public static $DB_PASSWORD = "";
 
 }
