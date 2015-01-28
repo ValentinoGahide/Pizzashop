@@ -7,8 +7,6 @@ use entities\Pizza;
 use entities\Product;
 use entities\PizzaProducten;
 
-new DBConfig();
-
 class pizzaDAO{
     
     //Haalt een pizza-object op aan de hand van zijn id

@@ -6,8 +6,6 @@ use PDO;
 use entities\Gebruiker;
 use business\plaatsService;
 
-new DBConfig();
-
 class gebruikerDAO{
     
     //Aanmaken van een klant in de database

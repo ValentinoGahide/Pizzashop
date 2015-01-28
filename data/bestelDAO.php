@@ -8,8 +8,6 @@ use entities\Bestelling;
 use entities\Pizza;
 use entities\BestelPizza;
 
-new DBConfig();
-
 class bestelDAO {
 
     //Creëert de bestelling in de database
