@@ -3,10 +3,10 @@
 namespace data;
 
 if (!isset($DB)) {
-    $DB = new DBconfig();
+    $DB = new DBConfig();
 }
 
-class DBconfig {
+class DBConfig {
 
     public static $DB_CONNSTRING = null;
     public static $DB_USERNAME = null;
@@ -15,21 +15,19 @@ class DBconfig {
     function __construct() {
         $host = getenv("OPENSHIFT_MYSQL_DB_HOST");
         $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
-        DBconfig::$DB_USERNAME = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-        DBconfig::$DB_PASSWORD = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-        DBconfig::$DB_CONNSTRING = "mysql:host=$host;port=$port;dbname=databasename";
+        DBConfig::$DB_USERNAME = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+        DBConfig::$DB_PASSWORD = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+        DBConfig::$DB_CONNSTRING = "mysql:host=$host;port=$port;dbname=pizzashop";
     }
 
 }
 
 /*
- class DBConfig {
- 
-    
+class DBConfig {
+
     public static $DB_CONNSTRING = "mysql:host=localhost;dbname=pizzashop";
     public static $DB_USERNAME = "root";
     public static $DB_PASSWORD = "";
-     
-} 
 
- */
+}
+*/

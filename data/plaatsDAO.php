@@ -5,6 +5,8 @@ use data\DBConfig;
 use PDO;
 use entities\Plaats;
 
+new DBConfig();
+
 class plaatsDAO{
     
     //Haalt alle postcodes en plaatsen uit de database
