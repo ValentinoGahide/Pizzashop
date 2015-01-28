@@ -1,5 +1,5 @@
 <?php
-namespace business;
+namespace Business;
 
 use business\pizzaService;
 use entities\BestelPizza;

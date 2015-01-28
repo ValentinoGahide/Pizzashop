@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `bestelling` (
   `bestelId` int(11) NOT NULL AUTO_INCREMENT,
   `klantId` int(11) NOT NULL,
+  `tijdstip` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `prijs` int(11) NOT NULL,
   `info` varchar(50) NOT NULL,
   PRIMARY KEY (`bestelId`),

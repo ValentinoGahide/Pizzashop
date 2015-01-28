@@ -1,5 +1,5 @@
 <?php
-namespace business;
+namespace Business;
 
 use data\plaatsDAO;
 

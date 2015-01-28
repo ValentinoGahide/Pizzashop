@@ -16,7 +16,7 @@ class bestelDAO{
     //       $extrainfo: ev. extra informatie voor de koerier.
     //output: $bestellling: geeft een bestelling-object terug met een bestellingId
     public function creerBestelling($gebruiker, $tijd, $totaal, $extrainfo){
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         
         $sql = "INSERT INTO bestelling(klantId, tijdstip, prijs, info) "
                 . "VALUES ('" . $gebruiker->getGebruikerId() . "','$tijd','$totaal','$extrainfo')";
@@ -32,7 +32,7 @@ class bestelDAO{
     //input: $bestelling: bestelling-object
     //       $bestelpizza: pizza-object dat moet gekoppeld worden aan de bestelling
     public function creerPizzaBestelling($bestelling, $bestelpizza){
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         
         $sql = "INSERT INTO pizza_per_bestelling(bestelId , pizzaId, aantal) "
                 . "VALUES ('" . $bestelling->getBestellingId() . "', '" . $bestelpizza->getPizzaId() . "','" . $bestelpizza->getAantal() . "')";
@@ -46,7 +46,7 @@ class bestelDAO{
     //output: $lijst: lijst van bestelde pizza-objecten
     public function getLijstBesteldePizzas($bestelling){
         $lijst = array();
-         $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
         
         $sql = "SELECT pizzabestelId, pizza.pizzaId, pizzanaam, prijs, promoprijs, beschikbaar, aantal FROM pizza_per_bestelling, pizza WHERE bestelId = '". $bestelling->getBestellingId() ."' AND pizza.pizzaId = pizza_per_bestelling.pizzaId";
         

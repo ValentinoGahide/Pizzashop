@@ -2,24 +2,34 @@
 
 namespace data;
 
-class DBConfig {
+if (!isset($DB)) {
+    $DB = new DBconfig();
+}
 
-    public static $DB_CONNSTRING = "mysql:host=localhost;dbname=pizzashop";
-    public static $DB_USERNAME = "root";
-    public static $DB_PASSWORD = "";
-    public $dbh; // handle of the db connexion
-    private static $instance;
+class DBconfig {
 
-    private function __construct() {
-        $this->dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
-    }
+    public static $DB_CONNSTRING = null;
+    public static $DB_USERNAME = null;
+    public static $DB_PASSWORD = null;
 
-    public static function getInstance() {
-        if (!isset(self::$instance)) {
-            $object = __CLASS__;
-            self::$instance = new $object;
-        }
-        return self::$instance;
+    function __construct() {
+        $host = getenv("OPENSHIFT_MYSQL_DB_HOST");
+        $port = getenv('OPENSHIFT_MYSQL_DB_PORT');
+        DBconfig::$DB_USERNAME = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+        DBconfig::$DB_PASSWORD = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+        DBconfig::$DB_CONNSTRING = "mysql:host=$host;port=$port;dbname=databasename";
     }
 
 }
+
+/*
+ class DBConfig {
+ 
+    
+    public static $DB_CONNSTRING = "mysql:host=localhost;dbname=pizzashop";
+    public static $DB_USERNAME = "root";
+    public static $DB_PASSWORD = "";
+     
+} 
+
+ */

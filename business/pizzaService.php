@@ -1,8 +1,8 @@
 <?php
 
-namespace business;
+namespace Business;
 
-use data\PizzaDAO;
+use data\pizzaDAO;
 use entities\PizzaDetailProducten;
 
 class pizzaService {
