@@ -275,3 +275,5 @@ if (isset($_GET["actie"])) {
     $viewIndex = $twig->render("index.twig", array("pizzalijst" => $overzichtpizzas, "bestellijst" => $bestellingen, "totaal" => $totaal, "knop" => $knop, "ref" => $ref, "gebruiker" => $gebruiker));
     print($viewIndex);
 }
+ 
+ 
