@@ -7,7 +7,6 @@ use PDO;
 use entities\Bestelling;
 use entities\Pizza;
 use entities\BestelPizza;
-new DBconfig();
 
 class bestelDAO {
 
