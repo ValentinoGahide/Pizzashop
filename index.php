@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -15,8 +17,6 @@ use entities\Gebruiker;
 require_once("Doctrine/Common/ClassLoader.php");
 $classLoader = new ClassLoader();
 $classLoader->register();
-
-session_start();
 
 Twig\Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("presentation");

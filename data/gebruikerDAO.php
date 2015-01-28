@@ -7,13 +7,16 @@ use PDO;
 use entities\Gebruiker;
 use business\plaatsService;
 
+new DBCOnfig();
+
 class gebruikerDAO {
 
     //Aanmaken van een klant in de database
     //input: $gebruiker: gebruiker-object zonder klant id
     //output: $gebruiker: gebruiker-object met klant id
     public function creerGebruiker($gebruiker) {
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); 
+        /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBconfig::$DB_USERNAME, DBconfig::$DB_PASSWORD);
 
         $sql = "INSERT INTO klant (naam, voornaam, straat, huisnummer, busnummer, plaatsId, "
                 . "tel, email, wachtwoord, extra, promo) "
@@ -32,7 +35,8 @@ class gebruikerDAO {
     //Past de gegevens van een klant aan
     //input: $gebruiker: gebruiker-object met de nieuw gegevens van de klant
     public function updateGebruiker($gebruiker) {
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); 
+        /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBconfig::$DB_USERNAME, DBconfig::$DB_PASSWORD);
 
         $sql = "UPDATE `klant` SET naam = '" . $gebruiker->getNaam() . "', voornaam = '" . $gebruiker->getVoornaam() . "',"
                 . " straat = '" . $gebruiker->getStraat() . "', huisnummer = '" . $gebruiker->getHuisnummer() . "',"
@@ -49,7 +53,8 @@ class gebruikerDAO {
     //output: $gebruiker: indien id van de klant bestaat, gebruiker-object,
     //        null: indien id van de klant niet bestaat  
     public function getGebruikerById($gebruikerId) {
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
+        /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBconfig::$DB_USERNAME, DBconfig::$DB_PASSWORD);
 
         $sql = "SELECT naam, voornaam, straat, huisnummer, busnummer, plaatsId, tel, email, wachtwoord, extra, promo FROM klant WHERE klantId = '$gebruikerId'";
 
@@ -75,7 +80,8 @@ class gebruikerDAO {
     //output: $gebruiker: indien emailadres van de klant bestaat, gebruiker-object,
     //        null: indien emailadres van de klant niet bestaat  
     public function getGebruikerByEmail($email) {
-       $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
+        /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBconfig::$DB_USERNAME, DBconfig::$DB_PASSWORD);
 
         $sql = "SELECT klantId, naam, voornaam, straat, huisnummer, busnummer, plaatsId, tel, wachtwoord, extra, promo FROM klant WHERE email = '$email'";
 
@@ -101,7 +107,8 @@ class gebruikerDAO {
     //output: true: indien emailadres in de database zit
     //        false: indien emailadres niet in de database zit
     public function getEmailExists($email) {
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD);
+        /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBconfig::$DB_USERNAME, DBconfig::$DB_PASSWORD);
 
         $sql = "SELECT email FROM klant WHERE email = '$email'";
 
@@ -122,7 +129,8 @@ class gebruikerDAO {
     //input: $email: emailadres van een klant
     //output: $wachtwoord: geeft het gehashde wachtwoord van de klant
     public function getWachtwoord($email) {
-        $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); 
+        /* $dbh = new PDO(self::$DB_CONNSTRING, self::$DB_USERNAME, self::$DB_PASSWORD); */
+        $dbh = new PDO(DBconfig::$DB_CONNSTRING, DBconfig::$DB_USERNAME, DBconfig::$DB_PASSWORD);
 
         $sql = "SELECT wachtwoord FROM klant WHERE email = '$email'";
 
