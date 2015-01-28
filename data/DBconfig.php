@@ -3,10 +3,10 @@
 namespace data;
 
 if (!isset($DB)) {
-    $DB = new DBConfig();
+    $DB = new DBconfig();
 }
 
-class DBConfig {
+class DBconfig {
 
     public static $DB_CONNSTRING = null;
     public static $DB_USERNAME = null;

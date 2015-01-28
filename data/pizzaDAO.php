@@ -2,13 +2,13 @@
 
 namespace data;
 
-use data\DBConfig;
+use data\DBconfig;
 use PDO;
 use entities\Pizza;
 use entities\Product;
 use entities\PizzaProducten;
 
-new DBConfig();
+new DBconfig();
 
 class pizzaDAO {
 

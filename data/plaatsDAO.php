@@ -2,7 +2,7 @@
 
 namespace data;
 
-use data\DBConfig;
+use data\DBconfig;
 use PDO;
 use entities\Plaats;
 

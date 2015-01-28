@@ -2,12 +2,12 @@
 
 namespace data;
 
-use data\DBConfig;
+use data\DBconfig;
 use PDO;
 use entities\Bestelling;
 use entities\Pizza;
 use entities\BestelPizza;
-new DBConfig();
+new DBconfig();
 
 class bestelDAO {
 

@@ -2,12 +2,12 @@
 
 namespace data;
 
-use data\DBConfig;
+use data\DBconfig;
 use PDO;
 use entities\Gebruiker;
 use business\plaatsService;
 
-new DBCOnfig();
+new DBconfig();
 
 class gebruikerDAO {
 
